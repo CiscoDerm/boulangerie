@@ -14,7 +14,7 @@ struct Produit {
 };
 
 int verifierMotDePasse(char motDePasse[]) {
-    char motDePasseAttendu[] = "MAXIMD";
+    char motDePasseAttendu[] = "Epidor";
     return strcmp(motDePasse, motDePasseAttendu) == 0;
 }
 
@@ -47,7 +47,7 @@ void afficherCaisse(struct Piece pieces[], int nbPieces, char motDePasse[]) {
 void initialiserCaisse(struct Piece caisse[], int nbPieces) {
     printf("Initialisation de la caisse au démarrage du programme:\n");
     for (int i = 0; i < nbPieces; i++) {
-        printf("Nombre de pièces de %.2f euro(s): ", caisse[i].valeur);
+        printf("Nombre de pieces de %.2f euro(s): ", caisse[i].valeur);
         scanf("%d", &caisse[i].quantite);
     }
 }
@@ -123,7 +123,7 @@ int main() {
                     printf("Stock disponible: %d\n", produits[numProduit].quantite);
 
                     int quantite;
-                    printf("Entrez la quantité que vous souhaitez acheter: ");
+                    printf("Entrez la quantite que vous souhaitez acheter: ");
                     scanf("%d", &quantite);
 
                     if (quantite <= produits[numProduit].quantite) {
@@ -135,32 +135,32 @@ int main() {
                         scanf("%f", &monnaieVerse);
 
                         if (monnaieVerse < sommeDue) {
-                            printf("Somme insuffisante. Rendre les pièces.\n");
+                            printf("Somme insuffisante. Rendre les pieces.\n");
                         } else {
                             float monnaieDue = monnaieVerse - sommeDue;
                             if (monnaieDue > 0) {
                                 rendreMonnaie(caisse, nbPieces, monnaieDue);
                                 produits[numProduit].quantite -= quantite;
-                                printf("Transaction réussie. Rendre la monnaie.\n");
+                                printf("Transaction reussie. Rendre la monnaie.\n");
                             } else {
                                 produits[numProduit].quantite -= quantite;
-                                printf("Transaction réussie. Pas de monnaie à rendre.\n");
+                                printf("Transaction reussie. Pas de monnaie à rendre.\n");
                             }
                         }
                     } else {
-                        printf("Stock insuffisant pour le produit sélectionné.\n");
+                        printf("Stock insuffisant pour le produit selectionne.\n");
                     }
                 } else {
-                    printf("Numéro de produit invalide.\n");
+                    printf("Numero de produit invalide.\n");
                 }
                 break;
             }
             default:
-                printf("Option invalide. Veuillez réessayer.\n");
+                printf("Option invalide. Veuillez reessayer.\n");
         }
 
         // Ajouter une pause pour laisser le temps à l'utilisateur de lire avant de nettoyer la console
-        printf("\nAppuyez sur Entrée pour continuer...");
+        printf("\nAppuyez sur Entree pour continuer...");
         getchar();  // Attendre l'entrée de l'utilisateur
         getchar();  // Attendre une autre entrée pour continuer
     }
